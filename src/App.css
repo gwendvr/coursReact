@@ -1,9 +1,107 @@
-.App {
-  text-align: center;
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.product-list {
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.card {
+  width: 50rem;
+  position: relative;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: #fff;
+}
+
+.button-container {
+  bottom: 10px;
+  left: 10px;
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+}
+
+.btn-cart {
+  margin-left: auto;
+  margin-right: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.btn-favorite {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.card img {
+  width: 200px;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+.card h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 16px;
+  color: #555;
+}
+
+.card button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.toilet-list{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Tablettes */
+@media (max-width: 768px) {
+  .card {
+      width: 100%;
+  }
+}
+
+/* Téléphones */
+@media (max-width: 576px) {
+  .card {
+      padding: 10px;
+  }
+
+  .card h2 {
+      font-size: 20px;
+  }
+
+  .card p {
+      font-size: 14px;
+  }
+
+  .card button {
+      padding: 8px 16px;
+  }
 }

@@ -1,15 +1,16 @@
 import React from 'react';
 import './App.css';
-import ProductList from './ProductList'; // Importation du composant ProductList
+import ToiletList from './components/ToiletList';
 
 function App() {
-  return (
-    <div className="App">
-      {/* Conteneur principal de l'application */}
-      <h1>Catalogue de Produits</h1> 
-      <ProductList /> {/* Affiche la liste des produits */}
-    </div>
-  );
+    return (
+        <div className="App">
+            <div className="container">
+                <h1>Bienvenue sur notre site de vente de toilettes</h1>
+                <ToiletList />
+            </div>
+        </div>
+    );
 }
 
 export default App;
