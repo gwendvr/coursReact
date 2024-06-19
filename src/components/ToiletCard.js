@@ -1,27 +1,33 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; 
-import { faCartPlus, faHeart } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCartPlus, faHeart, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 
-const ToiletCard = ({ toilet }) => {
-    const addToCart = () => {
-        // Logique pour ajouter au panier
-    };
+const ToiletCard = ({ toilet, addToCart }) => {
 
     const addToFavorites = () => {
-        // Logique pour ajouter aux favoris
+        alert(`${toilet.title} ajouté au favori !`);
+    };
+
+    const showInformation = () => {
+        alert(`Toilette : ${toilet.title}\nDescription : ${toilet.description}`);
     };
 
     return (
         <div className="card">
-            <img src={toilet.image} alt={toilet.title} /> {/* Affiche l'image, etc... */}
+            <div className="top-right-container">
+                <button className="btn-info" onClick={showInformation}>
+                    <FontAwesomeIcon icon={faInfoCircle} />
+                </button>
+            </div>
+            <img src={toilet.image} alt={toilet.title} />
             <h2>{toilet.title}</h2>
             <p>{toilet.description}</p>
             <p>Prix : {toilet.price} €</p>
             <div className="button-container">
-                <button className="btn-favorite" onClick={addToFavorites}> {/* Bouton "Ajouter aux favoris" avec la fonction onclick qui se ralise quand on click sur le bouton */}
+                <button className="btn-favorite" onClick={addToFavorites}>
                     <FontAwesomeIcon icon={faHeart} /> Ajouter aux favoris
                 </button>
-                <button className="btn-cart" onClick={addToCart}> {/* Bouton "Ajouter au panier" */}
+                <button className="btn-cart" onClick={() => addToCart(toilet)}>
                     <FontAwesomeIcon icon={faCartPlus} /> Ajouter au panier
                 </button>
             </div>
