@@ -1,14 +1,18 @@
 import React from 'react';
 import ToiletCard from './ToiletCard';
-import toiletsData from '../data/toiletsData'; // Importez les données des toilettes
+import toiletsData from '../data/toiletsData'; // Assurez-vous de créer ce fichier avec les données
 
-// Composant fonctionnel ToiletList qui accepte la prop 'addToCart'
-const ToiletList = ({ addToCart }) => {
+// Composant fonctionnel ToiletList qui accepte les props 'addToCart', 'searchTerm' et 'filterLuxe'
+const ToiletList = ({ addToCart, searchTerm, filterLuxe }) => {
+    // Filtrer les articles en fonction du terme de recherche et du filtre luxe
+    const filteredToilets = toiletsData.filter(toilet => 
+        toilet.title.toLowerCase().includes(searchTerm.toLowerCase()) &&
+        (!filterLuxe || toilet.isLuxe)
+    );
+
     return (
         <div className="toilet-list">
-            {/* Boucle sur chaque élément des données des toilettes et rend une ToiletCard pour chaque toilette */}
-            {toiletsData.map(toilet => (
-                // Chaque ToiletCard reçoit les données de la toilette et la fonction 'addToCart' en props
+            {filteredToilets.map(toilet => (
                 <ToiletCard key={toilet.id} toilet={toilet} addToCart={addToCart} />
             ))}
         </div>
