@@ -1,4 +1,4 @@
-const CartModal = ({ isOpen, cartItems, onClose, increaseQuantity, decreaseQuantity }) => {
+const CartModal = ({ isOpen, cartItems, onClose, increaseQuantity, decreaseQuantity, totalPrice }) => {
     return (
         <>
             {isOpen && (  // Vérifie si isOpen est vrai pour afficher la modal
@@ -17,6 +17,7 @@ const CartModal = ({ isOpen, cartItems, onClose, increaseQuantity, decreaseQuant
                                 </li>
                             ))}
                         </ul>
+                        <p>Total : {totalPrice} €</p> {/* Affichage du total ici */}
                     </div>
                 </div>
             )}

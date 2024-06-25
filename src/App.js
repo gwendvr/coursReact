@@ -25,6 +25,20 @@ function App() {
     // `setFilterLuxe` est une fonction qui permet de changer cet état
     const [filterLuxe, setFilterLuxe] = useState(false); 
 
+    // Utilisation de l'état pour faire le total du panier
+    // `totalPrice` est le total
+    // `setTotalPrice` est la fonction
+    const [totalPrice, setTotalPrice] = useState(0);
+
+    // Calculer le total du panier
+    const calculateTotalPrice = () => {
+        let total = 0;
+        cartItems.forEach(item => {
+            total += item.price * item.quantity;
+        });
+        return total;
+    };
+
     // Fonction pour ajouter un article au panier
     const addToCart = (toilet) => {
         // Vérifie si l'article est déjà dans le panier
@@ -69,6 +83,10 @@ function App() {
         setFilterLuxe(!filterLuxe);
     };
 
+    // Mettre à jour le total du panier à chaque changement dans cartItems
+    React.useEffect(() => {
+        setTotalPrice(calculateTotalPrice());
+    }, [cartItems]);
 
     return (
         <div className="App">
@@ -94,6 +112,7 @@ function App() {
                     onClose={closeCartModal}
                     increaseQuantity={increaseQuantity}
                     decreaseQuantity={decreaseQuantity}
+                    totalPrice={totalPrice} 
                 />
             </div>
         </div>
